@@ -3,18 +3,18 @@ pipeline {
   stages {
     stage('Back-end') {
       agent {
-        docker { image 'maven:3.8.1-adoptopenjdk-11' }
+        docker { image 'nginx:latest' }
       }
       steps {
-        sh 'mvn --version'
+        sh 'nginx --version'
       }
     }
     stage('Front-end') {
       agent {
-        docker { image 'node:16-alpine' }
+        docker { image 'nginx:latest'  }
       }
       steps {
-        sh 'node --version'
+        sh 'nginx --version'
       }
     }
   }
